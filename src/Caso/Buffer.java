@@ -20,6 +20,15 @@ public class Buffer {
 		this.mensajes = mensajes;
 	}
 	
+	public synchronized void recibir()
+	{
+			
+	}
+	public synchronized void enviar(Mensaje mensaje)
+	{
+		
+	}
+	
 	
 
 }
