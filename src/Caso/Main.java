@@ -7,7 +7,7 @@ import java.io.FileReader;
 public class Main {
 	
 	
-	public static void load(String pFile)
+	public static void load(String pFile,Buffer buff)
 	{
 		try(BufferedReader in= new BufferedReader(new FileReader(new File(pFile))))
 		{
@@ -22,7 +22,7 @@ public class Main {
 				{
 					String ln=in.readLine();
 					int nMensajes=Integer.parseInt(ln);
-					Cliente c= new Cliente(nMensajes);
+					Cliente c= new Cliente(nMensajes,buff);
 					c.start();
 				}
 			}
@@ -37,7 +37,8 @@ public class Main {
 	public static void main(String [] args)
 	{
 		String pFile="";
-		load(pFile);
+		Buffer buff= new Buffer();
+		load(pFile,buff);
 	}
 	
 
