@@ -32,6 +32,7 @@ public class Cliente extends Thread{
 		{
 			try{
 				enviarMensaje((int)(Math.random()*1000+1));
+				i++;
 			}
 			catch(Exception e)
 			{
