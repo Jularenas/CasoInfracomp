@@ -12,9 +12,9 @@ public class Cliente extends Thread{
 		this.buffer=buffer;
 	}
 	
-	public synchronized void enviarMensaje(Integer mensaje)
+	public synchronized void enviarMensaje(Mensaje mensaje)
 	{
-		buffer.enviar(new Mensaje(""+mensaje));
+		buffer.enviar(mensaje);
 	}
 	public int getnMensajes() {
 		return nMensajes;
@@ -31,8 +31,10 @@ public class Cliente extends Thread{
 		while(i<nMensajes)
 		{
 			try{
-				enviarMensaje((int)(Math.random()*1000+1));
+				Mensaje m= new Mensaje(""+(int)(Math.random()*1000+1));
+				enviarMensaje(m);
 				i++;
+				m.wait();
 			}
 			catch(Exception e)
 			{
