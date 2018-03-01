@@ -2,18 +2,18 @@ package Caso;
 
 public class Mensaje extends Thread{
 
-	private  String mensaje;
+	private  int mensaje;
 	
-	public Mensaje(String mensaje)
+	public Mensaje(int mensaje)
 	{
 		this.mensaje=mensaje;
 	}
 
-	public String getMensaje() {
+	public int getMensaje() {
 		return mensaje;
 	}
 
-	public void setMensaje(String mensaje) {
+	public void setMensaje(int mensaje) {
 		this.mensaje = mensaje;
 	}
 	
