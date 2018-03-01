@@ -22,11 +22,19 @@ public class Buffer {
 	public synchronized void enviar(Mensaje mensaje)
 	{
 		mensajes.add(mensaje);
-		mensaje.notifyAll();
 	}
-	public synchronized Mensaje atender()
+	public synchronized void atender()
 	{
-		return null;
+		if(mensajes.size()>0)
+		{
+			Mensaje m=mensajes.get(0);
+			String msg=m.getMensaje();
+			int ms=Integer.parseInt(msg);
+			ms+=1;
+			m.setMensaje(""+ms);
+			m.notifyAll();
+			mensajes.remove(m);
+		}
 	}
 	
 	

@@ -35,7 +35,6 @@ public class Cliente extends Thread{
 				enviarMensaje(m);
 				i++;
 				m.wait();
-				
 			}
 			catch(Exception e)
 			{
