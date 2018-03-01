@@ -19,14 +19,14 @@ public class Buffer {
 	public void setMensajes(ArrayList<Mensaje> mensajes) {
 		this.mensajes = mensajes;
 	}
-	
-	public synchronized void recibir()
-	{
-			
-	}
 	public synchronized void enviar(Mensaje mensaje)
 	{
-		
+		mensajes.add(mensaje);
+		mensaje.notifyAll();
+	}
+	public synchronized Mensaje atender()
+	{
+		return null;
 	}
 	
 	
