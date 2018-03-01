@@ -17,6 +17,7 @@ public class Main {
 				String [] args= line.split(",");
 				int nClientes=Integer.parseInt(args[0]);
 				int nServers=Integer.parseInt(args[1]);
+				int serverThreads=Integer.parseInt(args[2]);
 				int i=0;
 				while(i<nClientes)
 				{
@@ -24,6 +25,12 @@ public class Main {
 					int nMensajes=Integer.parseInt(ln);
 					Cliente c= new Cliente(nMensajes,buff);
 					c.start();
+				}
+				i=0;
+				while(i<nServers)
+				{
+					Server s= new Server(serverThreads, buff);
+					s.start();
 				}
 			}
 		}

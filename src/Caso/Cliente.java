@@ -31,7 +31,7 @@ public class Cliente extends Thread{
 		while(i<nMensajes)
 		{
 			try{
-				Mensaje m= new Mensaje(""+(int)(Math.random()*1000+1));
+				Mensaje m= new Mensaje((int)(Math.random()*1000+1));
 				enviarMensaje(m);
 				i++;
 				m.wait();
