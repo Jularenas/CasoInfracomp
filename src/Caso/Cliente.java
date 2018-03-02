@@ -32,9 +32,14 @@ public class Cliente extends Thread{
 		{
 			try{
 				Mensaje m= new Mensaje((int)(Math.random()*1000+1));
-				enviarMensaje(m);
-				i++;
-				m.wait();
+				synchronized (m) {
+					enviarMensaje(m);
+					System.out.println("entra mensaje: " + m.getMensaje());
+					i++;
+					m.wait();
+					System.out.println("sale mensaje: " + m.getMensaje());
+				}
+
 			}
 			catch(Exception e)
 			{

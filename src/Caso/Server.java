@@ -32,7 +32,7 @@ public class Server extends Thread {
 			serverThreads[i]= new ServerThread(buff);
 		}
 		for (int i = 0; i < nServerThreads; i++) {
-			serverThreads[i].run();
+			serverThreads[i].start();
 		}
 	}
 }

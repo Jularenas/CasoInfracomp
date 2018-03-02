@@ -12,8 +12,9 @@ public class ServerThread extends Thread{
 	public void run() {
 		super.run();
 		
-		while(buff.atender()){
+		while(true){
+			if(!buff.atender()) {break;};
 			continue;
-		};
+		}
 	}
 }
