@@ -21,14 +21,19 @@ public class Main {
 				int i=0;
 				while(i<nClientes)
 				{
+					i++;
 					String ln=in.readLine();
-					int nMensajes=Integer.parseInt(ln);
+					int nMensajes=10;
+					if(ln!=null){
+						 nMensajes=Integer.parseInt(ln);
+					}	
 					Cliente c= new Cliente(nMensajes,buff);
 					c.start();
 				}
 				i=0;
 				while(i<nServers)
 				{
+					i++;
 					Server s= new Server(serverThreads, buff);
 					s.start();
 				}
@@ -43,7 +48,7 @@ public class Main {
 	
 	public static void main(String [] args)
 	{
-		String pFile="";
+		String pFile="./data/sisa.txt";
 		Buffer buff= new Buffer();
 		load(pFile,buff);
 	}

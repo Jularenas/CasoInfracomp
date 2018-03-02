@@ -21,6 +21,7 @@ public class Buffer {
 	}
 	public synchronized void enviar(Mensaje mensaje)
 	{
+		System.out.println("entra mensaje: " + mensaje.getMensaje());
 		mensajes.add(mensaje);
 	}
 	public synchronized boolean atender()
@@ -28,12 +29,13 @@ public class Buffer {
 		if(mensajes.size()>0)
 		{
 			Mensaje m=mensajes.get(0);
+			mensajes.remove(m);
 			int msg=m.getMensaje();
 			int ms=msg;
 			ms+=1;
 			m.setMensaje(ms);
-			m.notifyAll();
-			mensajes.remove(m);
+			m.notify();
+			System.out.println("sale mensaje: " + m.getMensaje());
 			return true;
 		}
 		return false;
